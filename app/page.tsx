@@ -799,6 +799,14 @@ export default function Home() {
 
     // Force auto-scroll when submitting a command
     setShouldScrollToBottom(true)
+
+    // Force auto-scroll when a command is executed
+    if (terminalRef.current) {
+      terminalRef.current.scrollTo({
+        top: terminalRef.current.scrollHeight,
+        behavior: "smooth",
+      })
+    }
   }
 
   // Enhanced tab completion to work with all commands and subcommands
