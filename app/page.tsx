@@ -4,6 +4,19 @@ import type React from "react"
 
 import { useState, useEffect, useRef } from "react"
 import { cn } from "@/lib/utils"
+import {
+  getLabInfrastructureMaintenanceContent,
+  getAboutContent,
+  getWorkExperienceContent,
+  getEducationContent,
+  getTechnicalSkillsContent,
+  getCertificationsContent,
+  getContactContent,
+  getGitHubProjectsContent,
+  getCustomerAdoptionInitiativeContent,
+  getOllamaWithTSDProxyContent,
+  getResumeContent, // Import the resume content function
+} from "@/utils/content"
 
 export default function Home() {
   const [input, setInput] = useState("")
@@ -91,18 +104,7 @@ export default function Home() {
 
     switch (section) {
       case "about":
-        return [
-          "=== ABOUT PATRICK FRIEDMAN ===",
-          "",
-          "I'm a cybersecurity professional with expertise in cloud security, programming,",
-          "and network analysis. Currently working as a Principle Customer Support Engineer",
-          "at Trend Micro, I specialize in XDR, EDR, and email security products.",
-          "",
-          "With a background in Computer Science and extensive experience in technical support",
-          "and customer success, I excel at solving complex security challenges and ensuring",
-          "customer satisfaction in enterprise environments.",
-          "",
-        ]
+        return getAboutContent()
       case "projects":
         return [
           "=== MY PROJECTS ===",
@@ -117,89 +119,15 @@ export default function Home() {
           "",
         ]
       case "experience":
-        return [
-          "=== WORK EXPERIENCE ===",
-          "",
-          "Principle Customer Support Engineer | Trend Micro | Jun 2023 – Present",
-          "• Provided technical support for cloud-based and on-premises security software",
-          "• Closed over 2,000 cases with an MTTR of 10 days",
-          "• Automated tasks using Python scripting",
-          "• Utilized CRM tools (Microsoft Dynamics, Salesforce, Jira)",
-          "• Diagnosed/resolved Windows OS, network, and security application issues",
-          "• Collaborated with cross-functional teams using agile methodologies",
-          "• Troubleshot SaaS applications, APIs, and enterprise infrastructure",
-          "",
-          "",
-          "Customer Success Manager / Engineer | Trend Micro | Jul 2021 – Jun 2023",
-          "• Mapped customer journey, addressing issues and escalations",
-          "• Reduced churn by 97% and increased customer retention",
-          "• Configured AWS, VMware EXSi, and Hyper-V environments",
-          "• Led training programs on security suites and protocols",
-          "• Conducted threat analyses and resolved vulnerabilities",
-          "• Managed enterprise customer accounts",
-          "• Provided support for multiple Fortune 500 companies",
-          "",
-        ]
+        return getWorkExperienceContent()
       case "education":
-        return [
-          "=== EDUCATION ===",
-          "",
-          "B.S. Computer Science",
-          "University of North Texas, Denton, TX",
-          "Graduated: May 2021",
-          "",
-        ]
+        return getEducationContent()
       case "skills":
-        return [
-          "=== TECHNICAL SKILLS ===",
-          "",
-          "Cybersecurity:",
-          "• Vulnerability assessment, threat detection, penetration testing",
-          "• Endpoint/server protection, incident investigation",
-          "",
-          "Cloud & DevOps:",
-          "• AWS, Hybrid Cloud Security, Docker, Kubernetes",
-          "• Git and cloud-native applications",
-          "",
-          "Programming & Development:",
-          "• Python, C/C++, SQL/MySQL, Bash, Kotlin",
-          "• Web Development, PHP, automation scripting",
-          "",
-          "Networking:",
-          "• Network analysis, Subnetting, Wireshark",
-          "• Troubleshooting across diverse environments",
-          "",
-          "Tools & Platforms:",
-          "• XDR, SIEM, Entra ID, Active Directory",
-          "• PFsense, VMware EXSi, Hyper-V",
-          "• Dynamics, Salesforce, Jira",
-          "",
-        ]
+        return getTechnicalSkillsContent()
       case "certifications":
-        return [
-          "=== CERTIFICATIONS ===",
-          "",
-          "Certificate in Cyber Security",
-          "ISC2",
-          "Issued: December 2023",
-          " ",
-          "Solutions Architect Associate",
-          "Amazon Web Services",
-          "Issued: August 2022",
-          "",
-        ]
+        return getCertificationsContent()
       case "contact":
-        return [
-          "=== CONTACT INFORMATION ===",
-          "",
-          "Email: patrick.s.friedman@gmail.com",
-          "Phone: (214) 471-3159",
-          "GitHub: github.com/patrickfriedman",
-          "LinkedIn: linkedin.com/in/patrickfri/",
-          "",
-          "Feel free to reach out for collaborations or opportunities!",
-          "",
-        ]
+        return getContactContent()
       case "resume":
         return [
           "=== RESUME ===",
@@ -212,97 +140,14 @@ export default function Home() {
           "",
         ]
       case "github":
-        return [
-          "=== GITHUB PROJECTS ===",
-          "",
-          "GitHub Profile: github.com/patrickfriedman",
-          "Recent Projects:",
-          "",
-          "1. Terminal-Portfolio",
-          "   • An interactive terminal-style portfolio for showcasing projects, skills, and experience.",
-          "   • Built with Next.js, React, and Tailwind CSS.",
-          "   • github.com/patrickfriedman/terminal-portfolio",
-          "",
-          "2. AI-Contest-CPATS",
-          "   • Repo to create an AI model that generates Python 3 code.",
-          "   • github.com/patrickfriedman/AI-Contest-CPATS",
-          "",
-          "3. Classification-of-Subjective-and-Objective-Texts-Using-RNN",
-          "   • Checks if an article is objective or subjective using machine learning.",
-          "   • github.com/patrickfriedman/Classification-of-Subjective-and-Objective-Texts-Using-RNN",
-          "",
-          "4. Braille2Text",
-          "   • Application to scan Nemmeth Braille (8-dot Braille for Math) and display it in text in real-time.",
-          "   • github.com/patrickfriedman/Braille2Text",
-          "",
-          "5. Restaurant-Kiosk",
-          "   • Fully functional restaurant website/kiosk created as a semester-long project.",
-          "   • github.com/patrickfriedman/Restaurant-Kiosk",
-          "",
-          "6. Sudoku-Solver",
-          "   • Sudoku game solver using the backtracking algorithm.",
-          "   • github.com/patrickfriedman/Sudoku-Solver",
-          "",
-          "Type 'open-github' to visit my GitHub profile in a new tab",
-          "",
-        ]
+        return getGitHubProjectsContent()
       default:
         if (currentDirectory.includes("projects/1")) {
-          return [
-            "=== Ollama with TSDProxy Integration ===",
-            "",
-            "Developed a local AI environment by integrating Ollama, an open-source tool for running large language models (LLMs)",
-            "on local machines, with TSDProxy, a Docker-based application that simplifies exposing services over a Tailscale network.",
-            "",
-            "Key Features:",
-            "Ollama Integration:",
-            "• Enabled local deployment of advanced AI models, enhancing data privacy and control.",
-            "• Utilized models like LLaVA and Gemma for diverse AI applications.",
-            "",
-            "TSDProxy Deployment:",
-            "• Simplified secure exposure of Dockerized services within the Tailscale network.",
-            "• Automated creation of Tailscale machines for each tagged container, eliminating the need for separate Tailscale containers per service.",
-            "",
-            "Technical Stack:",
-            "Ollama Integration:",
-            "• Ollama: Facilitated local execution of LLMs, supporting models like LLaVA and Gemma. (ollama.com)",
-            "• TSDProxy: Streamlined the process of securely exposing Docker containers to the Tailscale network. (github.com)",
-            "• Docker Compose: Orchestrated multi-container deployments, ensuring seamless integration and management.",
-            "• Tailscale: Provided secure, mesh VPN connectivity for services, enhancing network security and accessibility.",
-            "",
-            "Type 'cd ..' to go back to projects",
-            "",
-          ]
+          return getOllamaWithTSDProxyContent()
         } else if (currentDirectory.includes("projects/2")) {
-          return [
-            "=== Customer Adoption Initiative ===",
-            "",
-            "• Led outreach efforts to reconnect with lost and at-risk customers, assessing their status and addressing concerns.",
-            "• Coordinated with team members to analyze customer needs, schedule consultations, and distribute resources based on engagement levels.",
-            "• Provided tailored solutions, including training, deployment guides, and support, to encourage product adoption and improve security practices.",
-            "• Successfully enhanced customer satisfaction, boosted product deployments and upgrades, and improved company-client relationships, while refining account metrics for better reporting.",
-            "",
-            "Type 'cd ..' to go back to projects",
-            "",
-          ]
+          return getCustomerAdoptionInitiativeContent()
         } else if (currentDirectory.includes("projects/3")) {
-          return [
-            "=== Lab Infrastructure Maintenance ===",
-            "",
-            "Designed and managed comprehensive lab environments for testing and demonstrating",
-            "Trend Micro security solutions across Windows and Linux platforms.",
-            "",
-            "Key Achievements:",
-            "• Configured virtualization platforms including VMware EXSi and Hyper-V",
-            "• Implemented multi-cloud environments with AWS and Azure integration",
-            "• Optimized network configurations with proper subnetting and security policies",
-            "• Managed infrastructure using Active Directory, DHCP, and PFsense",
-            "",
-            "Technologies: VMware, Hyper-V, AWS, Azure, Active Directory, PFsense",
-            "",
-            "Type 'cd ..' to go back to projects",
-            "",
-          ]
+          return getLabInfrastructureMaintenanceContent()
         } else if (currentDirectory === "~") {
           return [
             "Available sections:",
@@ -320,75 +165,6 @@ export default function Home() {
         }
         return ["No content available for this directory"]
     }
-  }
-
-  // Function to get resume content for display in terminal
-  const getResumeContent = () => {
-    return [
-      "=== PATRICK FRIEDMAN - RESUME ===",
-      "",
-      "CONTACT INFORMATION",
-      "-------------------",
-      "Patrick Friedman",
-      "(214) 471-3159",
-      "patrick.s.friedman@gmail.com",
-      "linkedin.com/in/patrickfri/",
-      "github.com/patrickfriedman",
-      "",
-      "KEY SKILLS",
-      "----------",
-      "• Cybersecurity: Vulnerability assessment, threat detection, penetration testing, endpoint/server protection",
-      "• Cloud & DevOps: AWS, Hybrid Cloud Security, Docker, Kubernetes, Git",
-      "• Programming: Python, C/C++, SQL/MySQL, Bash, Kotlin, Web Development, PHP",
-      "• Networking: Network analysis, Subnetting, Wireshark, troubleshooting",
-      "• Tools & Platforms: XDR, SIEM, Entra ID, Active Directory, PFsense, VMware EXSi, Hyper-V",
-      "",
-      "EDUCATION",
-      "---------",
-      "B.S. Computer Science",
-      "University of North Texas, Denton, TX",
-      "May 2021",
-      "",
-      "WORK EXPERIENCE",
-      "---------------",
-      "Principle Customer Support Engineer",
-      "Trend Micro | Irving, TX | Jun 2023 – Present",
-      "• Provided technical support for cloud-based and on-premises security software",
-      "• Closed over 2,000 cases with an MTTR of 10 days",
-      "• Automated tasks using Python scripting",
-      "• Utilized CRM tools (Microsoft Dynamics, Salesforce, Jira)",
-      "• Diagnosed/resolved Windows OS, network, and security application issues",
-      "",
-      "Customer Success Manager / Engineer",
-      "Trend Micro | Irving, TX | Jul 2021 – Jun 2023",
-      "• Mapped customer journey, addressing issues and escalations",
-      "• Reduced churn by 97% and increased customer retention",
-      "• Configured AWS, VMware EXSi, and Hyper-V environments",
-      "• Led training programs on security suites and protocols",
-      "• Conducted threat analyses and resolved vulnerabilities",
-      "",
-      "PROJECT EXPERIENCE",
-      "-----------------",
-      "Classification of Subjective and Objective Texts Using RNN (Python)",
-      "• Developed a machine learning algorithm to classify text as objective or subjective",
-      "• Led the team as Product Manager in a 24-hour competition",
-      "",
-      "Nemmeth Braille to Text Translator (Python, Java, Kotlin)",
-      "• Developed an Android app to scan Nemmeth Braille and convert it to text in real-time",
-      "• Built image processing library using Python with OpenCV",
-      "",
-      "Lab Infrastructure Maintenance",
-      "• Designed and managed lab environments for Trend Micro security solutions",
-      "• Configured VMware EXSi, Hyper-V, AWS, and integrated Azure",
-      "",
-      "CERTIFICATIONS",
-      "--------------",
-      "Certificate in Cyber Security - ISC2 (Dec 2023)",
-      "Solutions Architect Associate - Amazon Web Services (Aug 2022)",
-      "",
-      "[ Type 'download-resume' to download the PDF version ]",
-      "",
-    ]
   }
 
   const processCommand = (cmd: string) => {
@@ -436,18 +212,7 @@ export default function Home() {
       case "about":
         setCurrentView("about")
         setCurrentDirectory("~/about")
-        return [
-          "=== ABOUT PATRICK FRIEDMAN ===",
-          "",
-          "I'm a cybersecurity professional with expertise in cloud security, programming,",
-          "and network analysis. Currently working as a Principle Customer Support Engineer",
-          "at Trend Micro, I specialize in XDR, EDR, and email security products.",
-          "",
-          "With a background in Computer Science and extensive experience in technical support",
-          "and customer success, I excel at solving complex security challenges and ensuring",
-          "customer satisfaction in enterprise environments.",
-          "",
-        ]
+        return getAboutContent()
 
       case "projects":
         setCurrentView("projects")
@@ -468,101 +233,27 @@ export default function Home() {
       case "experience":
         setCurrentView("experience")
         setCurrentDirectory("~/experience")
-        return [
-          "=== WORK EXPERIENCE ===",
-          "",
-          "Principle Customer Support Engineer | Trend Micro | Jun 2023 – Present",
-          "• Provided technical support for cloud-based and on-premises security software",
-          "• Closed over 2,000 cases with an MTTR of 10 days",
-          "• Automated tasks using Python scripting",
-          "• Utilized CRM tools (Microsoft Dynamics, Salesforce, Jira)",
-          "• Diagnosed/resolved Windows OS, network, and security application issues",
-          "• Collaborated with cross-functional teams using agile methodologies",
-          "• Troubleshot SaaS applications, APIs, and enterprise infrastructure",
-          "",
-          "Customer Success Manager / Engineer | Trend Micro | Jul 2021 – Jun 2023",
-          "• Mapped customer journey, addressing issues and escalations",
-          "• Reduced churn by 97% and increased customer retention",
-          "• Configured AWS, VMware EXSi, and Hyper-V environments",
-          "• Led training programs on security suites and protocols",
-          "• Conducted threat analyses and resolved vulnerabilities",
-          "• Managed enterprise customer accounts",
-          "• Provided support for multiple Fortune 500 companies",
-          "",
-        ]
+        return getWorkExperienceContent()
 
       case "education":
         setCurrentView("education")
         setCurrentDirectory("~/education")
-        return [
-          "=== EDUCATION ===",
-          "",
-          "B.S. Computer Science",
-          "University of North Texas, Denton, TX",
-          "Graduated: May 2021",
-          "",
-        ]
+        return getEducationContent()
 
       case "skills":
         setCurrentView("skills")
         setCurrentDirectory("~/skills")
-        return [
-          "=== TECHNICAL SKILLS ===",
-          "",
-          "Cybersecurity:",
-          "• Vulnerability assessment, threat detection, penetration testing",
-          "• Endpoint/server protection, incident investigation",
-          "",
-          "Cloud & DevOps:",
-          "• AWS, Hybrid Cloud Security, Docker, Kubernetes",
-          "• Git and cloud-native applications",
-          "",
-          "Programming & Development:",
-          "• Python, C/C++, SQL/MySQL, Bash, Kotlin",
-          "• Web Development, PHP, automation scripting",
-          "",
-          "Networking:",
-          "• Network analysis, Subnetting, Wireshark",
-          "• Troubleshooting across diverse environments",
-          "",
-          "Tools & Platforms:",
-          "• XDR, SIEM, Entra ID, Active Directory",
-          "• PFsense, VMware EXSi, Hyper-V",
-          "• Dynamics, Salesforce, Jira",
-          "",
-        ]
+        return getTechnicalSkillsContent()
 
       case "certifications":
         setCurrentView("certifications")
         setCurrentDirectory("~/certifications")
-        return [
-          "=== CERTIFICATIONS ===",
-          "",
-          "Certificate in Cyber Security",
-          "ISC2",
-          "Issued: December 2023",
-          "",
-          "",
-          "Solutions Architect Associate",
-          "Amazon Web Services",
-          "Issued: August 2022",
-          "",
-        ]
+        return getCertificationsContent()
 
       case "contact":
         setCurrentView("contact")
         setCurrentDirectory("~/contact")
-        return [
-          "=== CONTACT INFORMATION ===",
-          "",
-          "Email: patrick.s.friedman@gmail.com",
-          "Phone: (214) 471-3159",
-          "GitHub: github.com/patrickfriedman",
-          "LinkedIn: linkedin.com/in/patrickfri/",
-          "",
-          "Feel free to reach out for collaborations or opportunities!",
-          "",
-        ]
+        return getContactContent()
 
       case "resume":
         setCurrentView("resume")
@@ -600,41 +291,7 @@ export default function Home() {
       case "github":
         setCurrentView("github")
         setCurrentDirectory("~/github")
-        return [
-          "=== GITHUB PROJECTS ===",
-          "",
-          "GitHub Profile: github.com/patrickfriedman",
-          "",
-          "Recent Projects:",
-          "",
-          "1. Terminal-Portfolio",
-          "   • An interactive terminal-style portfolio for showcasing projects, skills, and experience.",
-          "   • Built with Next.js, React, and Tailwind CSS.",
-          "   • github.com/patrickfriedman/terminal-portfolio",
-          "",
-          "2. AI-Contest-CPATS",
-          "   • Repo to create an AI model that generates Python 3 code.",
-          "   • github.com/patrickfriedman/AI-Contest-CPATS",
-          "",
-          "3. Classification-of-Subjective-and-Objective-Texts-Using-RNN",
-          "   • Checks if an article is objective or subjective using machine learning.",
-          "   • github.com/patrickfriedman/Classification-of-Subjective-and-Objective-Texts-Using-RNN",
-          "",
-          "4. Braille2Text",
-          "   • Application to scan Nemmeth Braille (8-dot Braille for Math) and display it in text in real-time.",
-          "   • github.com/patrickfriedman/Braille2Text",
-          "",
-          "5. Restaurant-Kiosk",
-          "   • Fully functional restaurant website/kiosk created as a semester-long project.",
-          "   • github.com/patrickfriedman/Restaurant-Kiosk",
-          "",
-          "6. Sudoku-Solver",
-          "   • Sudoku game solver using the backtracking algorithm.",
-          "   • github.com/patrickfriedman/Sudoku-Solver",
-          "",
-          "Type 'open-github' to visit my GitHub profile in a new tab",
-          "",
-        ]
+        return getGitHubProjectsContent()
 
       case "open-github":
         // Open GitHub profile in a new tab
@@ -693,31 +350,7 @@ export default function Home() {
             if (currentDirectory === "~/projects") {
               setCurrentDirectory("~/projects/1")
               setCurrentView("project1")
-              return [
-                "=== Ollama with TSDProxy Integration ===",
-                "",
-                "Developed a local AI environment by integrating Ollama, an open-source tool for running large language models (LLMs)",
-                "on local machines, with TSDProxy, a Docker-based application that simplifies exposing services over a Tailscale network.",
-                "",
-                "Key Features:",
-                "Ollama Integration:",
-                "• Enabled local deployment of advanced AI models, enhancing data privacy and control.",
-                "• Utilized models like LLaVA and Gemma for diverse AI applications.",
-                "",
-                "TSDProxy Deployment:",
-                "• Simplified secure exposure of Dockerized services within the Tailscale network.",
-                "• Automated creation of Tailscale machines for each tagged container, eliminating the need for separate Tailscale containers per service.",
-                "",
-                "Technical Stack:",
-                "Ollama Integration:",
-                "• Ollama: Facilitated local execution of LLMs, supporting models like LLaVA and Gemma. (ollama.com)",
-                "• TSDProxy: Streamlined the process of securely exposing Docker containers to the Tailscale network. (github.com)",
-                "• Docker Compose: Orchestrated multi-container deployments, ensuring seamless integration and management.",
-                "• Tailscale: Provided secure, mesh VPN connectivity for services, enhancing network security and accessibility.",
-                "",
-                "Type 'cd ..' to go back to projects",
-                "",
-              ]
+              return getOllamaWithTSDProxyContent()
             } else {
               return [`cd: invalid path: ${target} - must be in projects directory`]
             }
@@ -726,17 +359,7 @@ export default function Home() {
             if (currentDirectory === "~/projects") {
               setCurrentDirectory("~/projects/2")
               setCurrentView("project2")
-              return [
-                "=== Customer Adoption Initiative ===",
-                "",
-                "• Led outreach efforts to reconnect with lost and at-risk customers, assessing their status and addressing concerns.",
-                "• Coordinated with team members to analyze customer needs, schedule consultations, and distribute resources based on engagement levels.",
-                "• Provided tailored solutions, including training, deployment guides, and support, to encourage product adoption and improve security practices.",
-                "• Successfully enhanced customer satisfaction, boosted product deployments and upgrades, and improved company-client relationships, while refining account metrics for better reporting.",
-                "",
-                "Type 'cd ..' to go back to projects",
-                "",
-              ]
+              return getCustomerAdoptionInitiativeContent()
             } else {
               return [`cd: invalid path: ${target} - must be in projects directory`]
             }
@@ -745,23 +368,7 @@ export default function Home() {
             if (currentDirectory === "~/projects") {
               setCurrentDirectory("~/projects/3")
               setCurrentView("project3")
-              return [
-                "=== Lab Infrastructure Maintenance ===",
-                "",
-                "Designed and managed comprehensive lab environments for testing and demonstrating",
-                "Trend Micro security solutions across Windows and Linux platforms.",
-                "",
-                "Key Achievements:",
-                "• Configured virtualization platforms including VMware EXSi and Hyper-V",
-                "• Implemented multi-cloud environments with AWS and Azure integration",
-                "• Optimized network configurations with proper subnetting and security policies",
-                "• Managed infrastructure using Active Directory, DHCP, and PFsense",
-                "",
-                "Technologies: VMware, Hyper-V, AWS, Azure, Active Directory, PFsense",
-                "",
-                "Type 'cd ..' to go back to projects",
-                "",
-              ]
+              return getLabInfrastructureMaintenanceContent()
             } else {
               return [`cd: invalid path: ${target} - must be in projects directory`]
             }
@@ -769,7 +376,6 @@ export default function Home() {
           default:
             return [`cd: no such directory: ${target}`]
         }
-
       default:
         if (trimmedCmd === "") return [""]
         return [`Command not found: ${mainCmd}. Type 'help' for available commands.`]
