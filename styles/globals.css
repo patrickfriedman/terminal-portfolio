@@ -10,6 +10,12 @@ body {
   color: #4ade80;
 }
 
+/* Add border to the terminal box */
+.terminal-box {
+  border: 2px solid #4ade80; /* Green border */
+  border-radius: 0.5rem; /* Rounded corners */
+}
+
 @keyframes blink {
   0%,
   100% {

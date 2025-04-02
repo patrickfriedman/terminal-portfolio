@@ -458,7 +458,7 @@ export default function Home() {
 
       <div
         ref={terminalRef}
-        className="flex-1 overflow-y-auto bg-gray-950 p-4 rounded-b-lg"
+        className="terminal-box flex-1 overflow-y-auto bg-gray-950 p-4 rounded-b-lg"
       >
         <div className="whitespace-pre-wrap">
           {history.map((line, i) => (
