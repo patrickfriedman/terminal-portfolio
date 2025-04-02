@@ -447,7 +447,7 @@ export default function Home() {
       className="flex flex-col h-screen bg-black text-green-500 font-mono p-2 md:p-4"
       onClick={handleTerminalClick}
     >
-      <div className="flex flex-col flex-1 border-2 border-green-500 rounded-lg shadow-lg shadow-green-500/20">
+      <div className="flex flex-col flex-1 border-2 border-green-500 rounded-lg shadow-lg shadow-green-500/20 overflow-hidden">
         <div className="flex items-center bg-gray-900 rounded-t-lg p-2">
           <div className="flex space-x-2">
             <div className="w-3 h-3 rounded-full bg-red-500"></div>
@@ -459,7 +459,7 @@ export default function Home() {
 
         <div
           ref={terminalRef}
-          className="flex-1 overflow-y-auto bg-gray-950 p-4 rounded-b-lg"
+          className="flex-1 overflow-y-auto bg-gray-950 p-4"
         >
           <div className="whitespace-pre-wrap">
             {history.map((line, i) => (
