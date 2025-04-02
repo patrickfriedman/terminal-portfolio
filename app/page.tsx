@@ -15,8 +15,8 @@ import {
   getGitHubProjectsContent,
   getCustomerAdoptionInitiativeContent,
   getOllamaWithTSDProxyContent,
-  getResumeContent, // Import the resume content function
-  getProjectsContent, // Import the reusable function for "My Projects"
+  getResumeContent,
+  getProjectsContent,
 } from "@/utils/content"
 
 export default function Home() {
