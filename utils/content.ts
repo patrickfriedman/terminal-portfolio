@@ -1,21 +1,4 @@
-// Reusable function for "Lab Infrastructure Maintenance"
-export const getLabInfrastructureMaintenanceContent = () => [
-  "=== Lab Infrastructure Maintenance ===",
-  "",
-  "Designed and managed comprehensive lab environments for testing and demonstrating",
-  "Trend Micro security solutions across Windows and Linux platforms.",
-  "",
-  "Key Achievements:",
-  "• Configured virtualization platforms including VMware EXSi and Hyper-V",
-  "• Implemented multi-cloud environments with AWS and Azure integration",
-  "• Optimized network configurations with proper subnetting and security policies",
-  "• Managed infrastructure using Active Directory, DHCP, and PFsense",
-  "",
-  "Technologies: VMware, Hyper-V, AWS, Azure, Active Directory, PFsense",
-  "",
-  "Type 'cd ..' to go back to projects",
-  "",
-]
+// === General Information Section ===
 
 // Reusable function for "About Patrick Friedman"
 export const getAboutContent = () => [
@@ -155,16 +138,18 @@ export const getGitHubProjectsContent = () => [
   "",
 ]
 
-// Reusable function for "Customer Adoption Initiative" (Project 2)
-export const getCustomerAdoptionInitiativeContent = () => [
-  "=== Customer Adoption Initiative ===",
+// === Projects Section ===
+
+export const getProjectsContent = () => [
+  "=== MY PROJECTS ===",
   "",
-  "• Led outreach efforts to reconnect with lost and at-risk customers, assessing their status and addressing concerns.",
-  "• Coordinated with team members to analyze customer needs, schedule consultations, and distribute resources based on engagement levels.",
-  "• Provided tailored solutions, including training, deployment guides, and support, to encourage product adoption and improve security practices.",
-  "• Successfully enhanced customer satisfaction, boosted product deployments and upgrades, and improved company-client relationships, while refining account metrics for better reporting.",
+  "1. Ollama with TSDProxy Integration",
   "",
-  "Type 'cd ..' to go back to projects",
+  "2. Customer Adoption Initiative",
+  "",
+  "3. Lab Infrastructure Maintenance",
+  "",
+  "Type 'cd [project-number]' to view more details about a specific project",
   "",
 ]
 
@@ -195,7 +180,40 @@ export const getOllamaWithTSDProxyContent = () => [
   "",
 ]
 
-// Reusable function for "Resume Content"
+// Reusable function for "Customer Adoption Initiative" (Project 2)
+export const getCustomerAdoptionInitiativeContent = () => [
+  "=== Customer Adoption Initiative ===",
+  "",
+  "• Led outreach efforts to reconnect with lost and at-risk customers, assessing their status and addressing concerns.",
+  "• Coordinated with team members to analyze customer needs, schedule consultations, and distribute resources based on engagement levels.",
+  "• Provided tailored solutions, including training, deployment guides, and support, to encourage product adoption and improve security practices.",
+  "• Successfully enhanced customer satisfaction, boosted product deployments and upgrades, and improved company-client relationships, while refining account metrics for better reporting.",
+  "",
+  "Type 'cd ..' to go back to projects",
+  "",
+]
+
+// Reusable function for "Lab Infrastructure Maintenance" (Project 3)
+export const getLabInfrastructureMaintenanceContent = () => [
+  "=== Lab Infrastructure Maintenance ===",
+  "",
+  "Designed and managed comprehensive lab environments for testing and demonstrating",
+  "Trend Micro security solutions across Windows and Linux platforms.",
+  "",
+  "Key Achievements:",
+  "• Configured virtualization platforms including VMware EXSi and Hyper-V",
+  "• Implemented multi-cloud environments with AWS and Azure integration",
+  "• Optimized network configurations with proper subnetting and security policies",
+  "• Managed infrastructure using Active Directory, DHCP, and PFsense",
+  "",
+  "Technologies: VMware, Hyper-V, AWS, Azure, Active Directory, PFsense",
+  "",
+  "Type 'cd ..' to go back to projects",
+  "",
+]
+
+// === Resume Section ===
+
 export const getResumeContent = () => [
   "=== PATRICK FRIEDMAN - RESUME ===",
   "",

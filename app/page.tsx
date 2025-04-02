@@ -16,6 +16,7 @@ import {
   getCustomerAdoptionInitiativeContent,
   getOllamaWithTSDProxyContent,
   getResumeContent, // Import the resume content function
+  getProjectsContent, // Import the reusable function for "My Projects"
 } from "@/utils/content"
 
 export default function Home() {
@@ -106,18 +107,7 @@ export default function Home() {
       case "about":
         return getAboutContent()
       case "projects":
-        return [
-          "=== MY PROJECTS ===",
-          "",
-          "1. Ollama with TSDProxy Integration",
-          "",
-          "2. Lab Infrastructure Maintenance",
-          "",
-          "3. Customer Adoption Initiative",
-          "",
-          "Type 'cd [project-number]' to view more details about a specific project",
-          "",
-        ]
+        return getProjectsContent()
       case "experience":
         return getWorkExperienceContent()
       case "education":
@@ -217,18 +207,7 @@ export default function Home() {
       case "projects":
         setCurrentView("projects")
         setCurrentDirectory("~/projects")
-        return [
-          "=== MY PROJECTS ===",
-          "",
-          "1. Ollama with TSDProxy Integration",
-          "",
-          "2. Lab Infrastructure Maintenance",
-          "",
-          "3. Customer Adoption Initiative",
-          "",
-          "Type 'cd [project-number]' to view more details about a specific project",
-          "",
-        ]
+        return getProjectsContent()
 
       case "experience":
         setCurrentView("experience")
