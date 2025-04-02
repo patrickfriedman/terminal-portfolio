@@ -444,47 +444,49 @@ export default function Home() {
 
   return (
     <main
-      className="flex flex-col h-screen bg-black text-green-500 font-mono"
+      className="flex flex-col h-screen bg-black text-green-500 font-mono p-2 md:p-4"
       onClick={handleTerminalClick}
     >
-      <div className="flex items-center mb-2 bg-gray-900 rounded-t-lg p-2">
-        <div className="flex space-x-2">
-          <div className="w-3 h-3 rounded-full bg-red-500"></div>
-          <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-          <div className="w-3 h-3 rounded-full bg-green-600"></div>
-        </div>
-        <div className="text-center flex-1 text-sm text-gray-400">patrick-friedman-terminal — {currentView}.sh</div>
-      </div>
-
-      <div
-        ref={terminalRef}
-        className="terminal-box flex-1 overflow-y-auto bg-gray-950 p-4 rounded-b-lg"
-      >
-        <div className="whitespace-pre-wrap">
-          {history.map((line, i) => (
-            <div key={i} className={cn("leading-6", line.startsWith("===") ? "text-cyan-400 font-bold mt-2" : "")}>
-              {line}
-            </div>
-          ))}
-        </div>
-
-        <form onSubmit={handleSubmit} className="flex items-center mt-1">
-          <div className="flex-shrink-0 text-green-400">
-            <span>{currentDirectory} $</span>
+      <div className="flex flex-col flex-1 border-2 border-green-500 rounded-lg shadow-lg shadow-green-500/20">
+        <div className="flex items-center bg-gray-900 rounded-t-lg p-2">
+          <div className="flex space-x-2">
+            <div className="w-3 h-3 rounded-full bg-red-500"></div>
+            <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+            <div className="w-3 h-3 rounded-full bg-green-600"></div>
           </div>
-          <input
-            ref={inputRef}
-            type="text"
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            onKeyDown={handleKeyDown}
-            className="flex-1 bg-transparent border-none outline-none text-green-300 ml-2 caret-green-500"
-            aria-label="Terminal input"
-          />
-        </form>
+          <div className="text-center flex-1 text-sm text-gray-400">patrick-friedman-terminal — {currentView}.sh</div>
+        </div>
+
+        <div
+          ref={terminalRef}
+          className="flex-1 overflow-y-auto bg-gray-950 p-4 rounded-b-lg"
+        >
+          <div className="whitespace-pre-wrap">
+            {history.map((line, i) => (
+              <div key={i} className={cn("leading-6", line.startsWith("===") ? "text-cyan-400 font-bold mt-2" : "")}>
+                {line}
+              </div>
+            ))}
+          </div>
+
+          <form onSubmit={handleSubmit} className="flex items-center mt-1">
+            <div className="flex-shrink-0 text-green-400">
+              <span>{currentDirectory} $</span>
+            </div>
+            <input
+              ref={inputRef}
+              type="text"
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+              onKeyDown={handleKeyDown}
+              className="flex-1 bg-transparent border-none outline-none text-green-300 ml-2 caret-green-500"
+              aria-label="Terminal input"
+            />
+          </form>
+        </div>
       </div>
 
-      <div className="mt-4 text-xs text-gray-500 flex justify-between">
+      <div className="mt-2 text-xs text-gray-500 flex justify-between px-2">
         <div>Type 'help' for available commands</div>
         <div className="flex items-center">
           <div className="w-2 h-2 rounded-full bg-green-500 mr-2 animate-pulse"></div>
