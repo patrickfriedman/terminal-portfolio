@@ -475,16 +475,16 @@ export default function Home() {
             value={input}
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={handleKeyDown}
-            className="flex-1 bg-transparent border-none outline-none text-green-200 ml-2 caret-green-400"
+            className="flex-1 bg-transparent border-none outline-none text-green-300 ml-2 caret-green-500"
             aria-label="Terminal input"
           />
         </form>
       </div>
 
-      <div className="mt-4 text-xs text-gray-400 flex justify-between">
+      <div className="mt-4 text-xs text-gray-500 flex justify-between">
         <div>Type 'help' for available commands</div>
         <div className="flex items-center">
-          <div className="w-2 h-2 rounded-full bg-green-400 mr-2 animate-pulse"></div>
+          <div className="w-2 h-2 rounded-full bg-green-500 mr-2 animate-pulse"></div>
           <span>Terminal ready</span>
         </div>
       </div>
