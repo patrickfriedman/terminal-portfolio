@@ -794,19 +794,20 @@ export default function Home() {
     const newEntry = `${currentDirectory} $ ${input}`
     const commandOutput = processCommand(input)
 
-    setHistory((prev) => [...prev, newEntry, ...commandOutput])
-    setInput("")
-
-    // Force auto-scroll when submitting a command
-    setShouldScrollToBottom(true)
-
-    // Force auto-scroll when a command is executed
-    if (terminalRef.current) {
-      terminalRef.current.scrollTo({
-        top: terminalRef.current.scrollHeight,
-        behavior: "smooth",
+    setHistory((prev) => {
+      const updatedHistory = [...prev, newEntry, ...commandOutput]
+      // Trigger auto-scroll after history is updated
+      requestAnimationFrame(() => {
+        if (terminalRef.current) {
+          terminalRef.current.scrollTo({
+            top: terminalRef.current.scrollHeight,
+            behavior: "smooth",
+          })
+        }
       })
-    }
+      return updatedHistory
+    })
+    setInput("")
   }
 
   // Enhanced tab completion to work with all commands and subcommands
