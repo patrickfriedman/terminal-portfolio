@@ -4,8 +4,8 @@
 
 body {
   font-family: Arial, Helvetica, sans-serif;
-  background-color: #1a1a1a; /* Darker background for better contrast */
-  color: #d1fae5; /* Lighter green for improved readability */
+  background-color: black;
+  color: #4ade80;
   font-family: "Space Mono", monospace;
 }
 
@@ -30,16 +30,16 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #2a2a2a; /* Slightly lighter track for contrast */
+  background: #111;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #555; /* Lighter thumb for better visibility */
+  background: #333;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #666; /* Hover state for better contrast */
+  background: #444;
 }
 
 @layer utilities {
