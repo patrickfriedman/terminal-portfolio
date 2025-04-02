@@ -444,7 +444,7 @@ export default function Home() {
 
   return (
     <main
-      className="flex min-h-screen flex-col bg-black text-green-500 font-mono p-4 md:p-8"
+      className="flex flex-col h-screen bg-black text-green-500 font-mono"
       onClick={handleTerminalClick}
     >
       <div className="flex items-center mb-2 bg-gray-900 rounded-t-lg p-2">
@@ -456,7 +456,10 @@ export default function Home() {
         <div className="text-center flex-1 text-sm text-gray-400">patrick-friedman-terminal — {currentView}.sh</div>
       </div>
 
-      <div ref={terminalRef} className="flex-1 overflow-auto bg-gray-950 p-4 rounded-b-lg">
+      <div
+        ref={terminalRef}
+        className="flex-1 overflow-y-auto bg-gray-950 p-4 rounded-b-lg"
+      >
         <div className="whitespace-pre-wrap">
           {history.map((line, i) => (
             <div key={i} className={cn("leading-6", line.startsWith("===") ? "text-cyan-400 font-bold mt-2" : "")}>

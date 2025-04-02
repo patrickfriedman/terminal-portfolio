@@ -3,10 +3,11 @@
 @tailwind utilities;
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  overflow: hidden; /* Prevent scrolling on the page */
+  font-family: "Space Mono", monospace;
   background-color: black;
   color: #4ade80;
-  font-family: "Space Mono", monospace;
 }
 
 @keyframes blink {
