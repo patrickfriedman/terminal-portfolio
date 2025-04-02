@@ -63,7 +63,7 @@ export default function Home() {
 
   // Enhanced auto-scroll to bottom of terminal
   useEffect(() => {
-    if (terminalRef.current && shouldScrollToBottom) {
+    if (terminalRef.current) {
       // Use requestAnimationFrame to ensure DOM has updated before scrolling
       requestAnimationFrame(() => {
         if (terminalRef.current) {
@@ -74,21 +74,7 @@ export default function Home() {
         }
       })
     }
-  }, [history, shouldScrollToBottom])
-
-  // Handle manual scrolling - disable auto-scroll when user scrolls up
-  useEffect(() => {
-    const terminal = terminalRef.current
-    if (!terminal) return
-
-    const handleScroll = () => {
-      const isScrolledToBottom = Math.abs(terminal.scrollHeight - terminal.clientHeight - terminal.scrollTop) < 10
-      setShouldScrollToBottom(isScrolledToBottom)
-    }
-
-    terminal.addEventListener("scroll", handleScroll)
-    return () => terminal.removeEventListener("scroll", handleScroll)
-  }, [])
+  }, [history]) // Trigger auto-scroll whenever history changes
 
   // Re-enable auto-scroll when user submits a command
   useEffect(() => {
