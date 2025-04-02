@@ -444,22 +444,22 @@ export default function Home() {
 
   return (
     <main
-      className="flex min-h-screen flex-col bg-black text-green-500 font-mono p-4 md:p-8"
+      className="flex min-h-screen flex-col bg-gray-900 text-green-300 font-mono p-4 md:p-8"
       onClick={handleTerminalClick}
     >
-      <div className="flex items-center mb-2 bg-gray-900 rounded-t-lg p-2">
+      <div className="flex items-center mb-2 bg-gray-800 rounded-t-lg p-2">
         <div className="flex space-x-2">
           <div className="w-3 h-3 rounded-full bg-red-500"></div>
           <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-          <div className="w-3 h-3 rounded-full bg-green-600"></div>
+          <div className="w-3 h-3 rounded-full bg-green-500"></div>
         </div>
-        <div className="text-center flex-1 text-sm text-gray-400">patrick-friedman-terminal — {currentView}.sh</div>
+        <div className="text-center flex-1 text-sm text-gray-300">patrick-friedman-terminal — {currentView}.sh</div>
       </div>
 
-      <div ref={terminalRef} className="flex-1 overflow-auto bg-gray-950 p-4 rounded-b-lg">
+      <div ref={terminalRef} className="flex-1 overflow-auto bg-gray-850 p-4 rounded-b-lg">
         <div className="whitespace-pre-wrap">
           {history.map((line, i) => (
-            <div key={i} className={cn("leading-6", line.startsWith("===") ? "text-cyan-400 font-bold mt-2" : "")}>
+            <div key={i} className={cn("leading-6", line.startsWith("===") ? "text-cyan-300 font-bold mt-2" : "")}>
               {line}
             </div>
           ))}
@@ -475,16 +475,16 @@ export default function Home() {
             value={input}
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={handleKeyDown}
-            className="flex-1 bg-transparent border-none outline-none text-green-300 ml-2 caret-green-500"
+            className="flex-1 bg-transparent border-none outline-none text-green-200 ml-2 caret-green-400"
             aria-label="Terminal input"
           />
         </form>
       </div>
 
-      <div className="mt-4 text-xs text-gray-500 flex justify-between">
+      <div className="mt-4 text-xs text-gray-400 flex justify-between">
         <div>Type 'help' for available commands</div>
         <div className="flex items-center">
-          <div className="w-2 h-2 rounded-full bg-green-500 mr-2 animate-pulse"></div>
+          <div className="w-2 h-2 rounded-full bg-green-400 mr-2 animate-pulse"></div>
           <span>Terminal ready</span>
         </div>
       </div>
