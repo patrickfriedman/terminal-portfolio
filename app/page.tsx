@@ -64,15 +64,7 @@ export default function Home() {
   // Enhanced auto-scroll to bottom of terminal
   useEffect(() => {
     if (terminalRef.current) {
-      // Use requestAnimationFrame to ensure DOM has updated before scrolling
-      requestAnimationFrame(() => {
-        if (terminalRef.current) {
-          terminalRef.current.scrollTo({
-            top: terminalRef.current.scrollHeight,
-            behavior: "smooth",
-          })
-        }
-      })
+      terminalRef.current.scrollTop = terminalRef.current.scrollHeight
     }
   }, [history]) // Trigger auto-scroll whenever history changes
 
@@ -249,8 +241,8 @@ export default function Home() {
           "   • github.com/patrickfriedman/Restaurant-Kiosk",
           "",
           "6. Sudoku-Solver",
-          "    • Sudoku game solver using the backtracking algorithm.",
-          "    • github.com/patrickfriedman/Sudoku-Solver",
+          "   • Sudoku game solver using the backtracking algorithm.",
+          "   • github.com/patrickfriedman/Sudoku-Solver",
           "",
           "Type 'open-github' to visit my GitHub profile in a new tab",
           "",
@@ -640,8 +632,8 @@ export default function Home() {
           "   • github.com/patrickfriedman/Restaurant-Kiosk",
           "",
           "6. Sudoku-Solver",
-          "    • Sudoku game solver using the backtracking algorithm.",
-          "    • github.com/patrickfriedman/Sudoku-Solver",
+          "   • Sudoku game solver using the backtracking algorithm.",
+          "   • github.com/patrickfriedman/Sudoku-Solver",
           "",
           "Type 'open-github' to visit my GitHub profile in a new tab",
           "",
